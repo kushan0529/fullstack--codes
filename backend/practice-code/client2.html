@@ -1,0 +1,112 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country</title>
+  <style>
+    ul {
+      list-style-type: none; /* Remove default dots */
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+    li img {
+      width: 30px;
+      height: 20px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Listing countries</h1>
+  <ul id="list"></ul>
+
+  <script>
+    window.onload = function () {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all?fields=name,capital,flags");
+      xhr.send();
+
+      xhr.onload = function () {
+        const data = JSON.parse(xhr.responseText);
+        const listHandle = document.getElementById("list");
+
+        data.forEach(country => {
+          const li = document.createElement("li");
+
+          // Create flag image
+          const flagImg = document.createElement("img");
+          flagImg.src = country.flags.png;
+          flagImg.alt = country.name.common + " flag";
+
+          // Country + capital text
+          const text = document.createTextNode(
+            country.name.common + " - " + (country.capital ? country.capital[0] : "No Capital")
+          );
+
+          // Add to li
+          li.appendChild(flagImg);
+          li.appendChild(text);
+
+          listHandle.appendChild(li);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country</title>
+</head>
+<body>
+  <h1>Listing countries</h1>
+  <ul id="list"></ul>
+  
+  <script>
+    window.onload = function () {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all?fields=name,capital,flags");
+      xhr.send();
+
+      xhr.onload = function () {
+        const data = JSON.parse(xhr.responseText);
+
+        // Sort countries alphabetically by name
+        data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+        const listHandle = document.getElementById("list");
+        
+        data.forEach(ele => {
+          const li = document.createElement("li");
+
+          // Flag
+          const img = document.createElement("img");
+          img.src = ele.flags.png;
+          img.alt = ele.name.common + " flag";
+          img.width = 30; // set flag size
+          img.style.marginRight = "10px";
+
+          // Country name + capital
+          const countryName = ele.name.common;
+          const capital = ele.capital ? ele.capital.join(", ") : "No capital"; 
+          const text = document.createTextNode(countryName + " - " + capital);
+
+          // Append flag + text
+          li.appendChild(img);
+          li.appendChild(text);
+          listHandle.appendChild(li);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+

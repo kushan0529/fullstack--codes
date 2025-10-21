@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Starter Portfolio — kushan kumar</title>
+  <meta name="description" content="A simple, responsive starter website template (HTML/CSS/JS) for portfolios and small business sites.">
+
+  <!-- Basic CSS: mobile-first, responsive grid, accessible components -->
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#38bdf8; /* sky-400 */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --maxw:1100px;
+      --gap:1.25rem;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#071026 120%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+    }
+
+    /* NAV */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+      margin-bottom:2rem;
+    }
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .navlinks{display:none}
+    .cta{background:var(--accent);color:#04203a;padding:.5rem .85rem;border-radius:10px;text-decoration:none;font-weight:600}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center;margin-bottom:2rem}
+    .hero-left{padding:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius)}
+    h1{font-size:clamp(1.4rem,3.2vw,2.4rem);margin:0 0 .5rem}
+    p.lead{margin:0;color:var(--muted)}
+
+    .buttons{margin-top:1rem;display:flex;gap:.75rem}
+
+    /* FEATURES grid */
+    .grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem}
+    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .card h3{margin:0 0 .5rem}
+    .muted{color:var(--muted);font-size:.95rem}
+
+    /* portfolio thumbnails */
+    .portfolio{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem}
+    .thumb{height:160px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:600}
+
+    /* contact */
+    form{display:grid;gap:.75rem}
+    input,textarea{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:.6rem .8rem;border-radius:8px;color:inherit}
+    input:focus,textarea:focus{outline:2px solid rgba(56,189,248,0.12);border-color:rgba(56,189,248,0.5)}
+    button{background:transparent;border:1px solid var(--accent);padding:.6rem .9rem;border-radius:8px;color:var(--accent);font-weight:700}
+
+    footer{color:var(--muted);font-size:.9rem;margin-top:2rem;text-align:center}
+
+    /* Responsive larger screens */
+    @media(min-width:720px){
+      .navlinks{display:flex;gap:1rem}
+      .hero{grid-template-columns:1fr 420px}
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .portfolio{grid-template-columns:repeat(3,1fr)}
+    }
+
+  </style>
+</head>
+<body>
+  <main class="container" id="top">
+
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">
+        <div class="logo" aria-hidden>KK</div>
+        <div>
+          <div style="font-weight:700">Kushan kumar</div>
+          <div style="font-size:.85rem;color:var(--muted)">Web Developer — React & Node</div>
+        </div>
+      </div>
+
+      <div class="navlinks" role="navigation" aria-label="Secondary">
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="cta" href="#contact">Hire me</a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-left card">
+        <h1>Hi — I build fast, responsive websites & web apps.</h1>
+        <p class="lead">I’m a web developer who designs and ships production-ready sites using React, Node.js, and modern deployment tools. I focus on great UX, performance, and clean code.</p>
+
+        <div class="buttons">
+          <a href="#projects" class="cta" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit">View projects</a>
+          <a href="#services" class="cta">Services</a>
+        </div>
+
+        <div style="margin-top:1rem;color:var(--muted);font-size:.95rem">
+          <strong>Quick facts:</strong>
+          <ul style="margin:.5rem 0 0 1rem">
+            <section id="about" class="card">
+  <h2>About Me</h2>
+  <p>
+    I'm a passionate <strong>Full-Stack Web Developer</strong> skilled in building dynamic and
+    responsive web applications using modern JavaScript technologies. My expertise spans both
+    frontend and backend development — from crafting sleek user interfaces to designing scalable
+    server-side APIs.
+  </p>
+
+  <h3>💡 Technical Skills</h3>
+  <ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript (ES6+), React.js, Responsive Design</li>
+    <li><strong>Backend:</strong> Node.js, Express.js, REST API Development</li>
+    <li><strong>Database:</strong> MongoDB, Mongoose (CRUD Operations, Data Modeling)</li>
+    <li><strong>Tools:</strong> Git, GitHub, Postman, Vercel, Netlify</li>
+  </ul>
+
+  <h3>🚀 What I Do</h3>
+  <ul>
+    <li>Design and develop responsive, user-friendly websites</li>
+    <li>Build and deploy full-stack MERN applications</li>
+    <li>Create secure authentication systems and RESTful APIs</li>
+    <li>Integrate front-end and back-end for seamless performance</li>
+  </ul>
+
+  <h3>📈 Highlights</h3>
+  <ul>
+    <li>Hands-on experience with multiple real-world projects</li>
+    <li>Strong understanding of component-based architecture (React)</li>
+    <li>Comfortable working with modern JS tools and frameworks</li>
+    <li>Always learning and exploring new web technologies</li>
+  </ul>
+
+  <p>
+    I love turning ideas into functional, elegant web experiences. If you're looking for a
+    developer who values clean code, performance, and creativity — let's connect!
+  </p>
+</section>
+
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card" aria-labelledby="skills-title">
+        <h3 id="skills-title">Skills & Tools</h3>
+        <p class="muted">React • Next.js • Tailwind / CSS • Node.js • Express • MongoDB • Git • Vercel • Netlify</p>
+
+        <div style="margin-top:1rem">
+          <h4 style="margin:.2rem 0">What I offer</h4>
+          <ul style="margin:.5rem 0 0 1rem;color:var(--muted)">
+            <li>Responsive landing pages</li>
+            <li>Small SPA & dashboards</li>
+            <li>API integration & forms</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <h2 style="margin:0 0 .75rem">Projects</h2>
+      <div class="portfolio">
+        <div class="thumb card">Project 1 — Landing page</div>
+        <div class="thumb card">Project 2 — E-commerce UI</div>
+        <div class="thumb card">Project 3 — Admin dashboard</div>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:1.5rem">
+      <h2 style="margin:0 0 .75rem">Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Build a landing page</h3>
+          <p class="muted">Perfect for product launches. Includes responsive design, forms, and deployment.</p>
+        </div>
+        <div class="card">
+          <h3>Convert Figma to code</h3>
+          <p class="muted">Pixel-perfect HTML/CSS or React components from your Figma designs.</p>
+        </div>
+        <div class="card">
+          <h3>Web app (React + API)</h3>
+          <p class="muted">Full-stack app with authentication and a REST API.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:1.5rem">
+      <h2 style="margin:0 0 .75rem">Contact</h2>
+      <div class="card">
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <label class="muted">Name<input type="text" id="name" required placeholder="kushan kumar"></label>
+          <label class="muted">Email<input type="email" id="email" required placeholder="you@example.com"></label>
+          <label class="muted">Message<textarea id="message" rows="4" required placeholder="Brief project description"></textarea></label>
+          <div style="display:flex;gap:.5rem;align-items:center;margin-top:.5rem">
+            <button type="submit">Send message</button>
+            <div id="status" style="color:var(--muted);font-size:.95rem"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ — kushan kumar • <a href="#top">Back to top</a></p>
+    </footer>
+
+  </main>
+
+  <!-- Small JS: navigation (if you add mobile menu), contact handler (demo), accessibility helpers -->
+  <script>
+    function handleSubmit(e){
+      e.preventDefault();
+      const s=document.getElementById('status');
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const message=document.getElementById('message').value.trim();
+
+      if(!name || !email || !message){
+        s.textContent='Please fill all fields.';
+        return false;
+      }
+
+      // Demo behaviour: in production wire this to an API or service like Formspree, Netlify Forms
+      s.textContent='Thanks — message sent (demo).';
+      s.style.color='var(--accent)';
+
+      // Clear form after submit
+      document.getElementById('contactForm').reset();
+      setTimeout(()=>{s.textContent='';s.style.color='';},4000);
+      return false;
+    }
+  </script>
+
+</body>
+</html>

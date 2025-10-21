@@ -1,0 +1,134 @@
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>ems</title>
+    </head>
+    <body>
+        <h1>Employee management sysytem</h1>
+        <h2 >Totalemployees -<span id ="count">0</span></h2>
+        <ul id="list"></ul>
+        <button  onclick="handleclick()"> fetchdetails</button>
+       <script>
+            function handleclick(){
+                const counthandle=document.getElementById("count")
+                const listhandle=document.getElementById("list")
+                listhandle.innerHTML=""
+
+                const xhr=new XMLHttpRequest();
+                xhr.open("GET","http://localhost:3050/employees")
+                xhr.send();
+                xhr.onload=function(){
+                    
+                    const data=JSON.parse(xhr.responseText)
+                    counthandle.textContent=data.length
+                    data.forEach((ele)=> {
+                        const listtag=document.createElement("li")
+                        listtag.textContent=ele.name
+                        listhandle.appendChild(listtag)
+                    });
+                }
+
+            }
+       </script>
+
+    </body>
+
+         
+   
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ems</title>
+    </head>
+    <body>
+        <h1>employe management details</h1>
+        <h2>Total employees-<span id="count">0</span></h2>
+        <ul id ="list"></ul>
+        <button onclick="handleclick()">fetch details</button>
+        <script>
+            function handleclick(){
+                const counthandle=document.getElementById("count")
+                const listhandle=document.getElementById("list")
+                listhandle.innerHTML=""
+                const xhr=new XMLHttpRequest();
+                xhr.open("GET","http://localhost:3050/employees")
+                xhr.send()
+                xhr.onload=function(){
+                    console.log(typeof xhr.responseText)
+                    const data=JSON.parse(xhr.responseText)
+                    counthandle.textContent=data.length
+                    data.forEach(element => {
+                        const listtag=document.createElement("li")
+                        listtag.textContent=element.name
+                        listhandle.appendChild(listtag)
+                        
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>click the page</h1>
+    
+    <a href="https://en.wikipedia.org/wiki/kushan">
+        <img src="cbum.png" width="300" >
+        <audio controls src="/practice-code/[iSongs.info] 04 - Ragile Ragile.mp3"></audio>
+        click for details
+
+    </a>
+</body>
+</html>
+https://restcountries.com/v3.1/all?fields=name,capital,flags-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My number </h1>
+    <button onclick="handleclick()">fetch details</button>
+    <script>
+        Access-Control-Allow-Origin:*
+        function handleclick(){
+            
+            const xhr=new XMLHttpRequest();
+            xhr.open("GET","http://en.wikipedia.org/wiki/kushan")
+            xhr.send()
+            xhr.onload=function(){
+                const data=JSON.parse(xhr.responseText)
+                console.log(data)
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

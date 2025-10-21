@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>something</title>
+    </head>
+    <body>
+        <h1>newpage is opened</h1>
+        <button onclick="click1()">click here</button>
+        <script>
+            function click1(){
+                alert("don't click the button please")
+            }
+            const xhr=new XMLHttpRequest();
+            xhr.open("GET","https://jsonplaceholder.typicode.com/users")
+            xhr.send()
+            xhr.onload=function(){
+                console.log("received data",typeof xhr.responseText)
+                const data=JSON.parse(xhr.responseText)
+                console.log(typeof data,data)
+                console.log("Total users",data.length)
+                data.forEach((ele)=>{
+                    console.log(ele.name)
+                })
+            }
+        </script>
+    </body>
+</html>

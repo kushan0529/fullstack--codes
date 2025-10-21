@@ -1,0 +1,123 @@
+
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <title>Employee management system</title>
+    </head>
+    <body>
+        <h1>EMS</h1>
+        <h2>Total employes-</h2>
+        <button onclick="handleclick()">fetch employee details</button>
+        
+        <script>
+            console.log("hello world")
+            function handleclick(){
+                const xhr=new XMLHttpRequest();
+                xhr.open("GET","http://localhost:3050/employees");
+                xhr.send()//send the request to the server
+                xhr.onload=function(){//fn called once the response recieved by server
+                    console.log('data received',typeof xhr.responseText)//data in json format ie string object
+                    const data =JSON.parse(xhr.responseText);
+                    console.log(typeof data,data)
+                    console.log("total users",data.length); //operations to perform 
+                    data.forEach((ele) => {
+                        console.log(ele.name)
+                    });
+                }
+            }
+            
+        </script>
+    </body>
+</html>>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>country and capitals</title>
+    </head>
+    <body>
+        <h1>countries are</h1>
+        <u1 id="list"></u1>
+        <script>
+            window.onload=function(){
+                const xhr=new XMLHttpRequest()
+                xhr.open("GET","https://restcountries.com/v3.1/all?fields=name,capital,flags")
+                xhr.send()
+                xhr.onload=function(){
+                    const listhandle=document.getElementById("list")
+                    const data =JSON.parse(xhr.responseText)
+                    data.forEach((ele) => {
+                        const li=document.createElement("Li")
+                        const country=ele.name.common
+                        const capital=ele.capital
+                        li.textContent=country+  "  :  " +capital
+                        listhandle.appendChild(li)
+                    });
+                    
+
+                }
+
+            }
+        </script>
+    </body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>country2</title>
+    </head>
+    <body>
+        <h1>total countries</h1>
+        <u1 id="list"></u1>
+        <script>
+            const listhandle=document.getElementById("list")
+            
+
+            window.onload=function(){
+                const xhr=new XMLHttpRequest();
+                xhr.open("GET","https://restcountries.com/v3.1/all?fields=name,capital,flags")
+                xhr.send()
+                xhr.onload=function(){
+                    console.log(typeof xhr.responseText)
+                    const data=JSON.parse(xhr.responseText)
+                    data.sort((a,b)=> a.name.common.localeCompare(b.name.common))
+
+                    data.forEach(element => {
+                        
+                   
+                        const li =document.createElement("li")
+                        const countrys=element.name.common
+                        const capitals=element.capital
+                        li.textContent=countrys +" <>"+ capitals
+                        listhandle.appendChild(li)
+                      
+                })
+            }
+            }
+        </script>
+    </body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>photo</title>
+    </head>
+    <body>
+        <h1> photo is showing down</h1>
+        <div></div>
+        <script>
+            
+            let myimg=document.getElementById("img")
+            myimg.source="https://via.placeholder.com/300x200"
+            myimg.alt="image not found"
+            myimg.width=300
+            myimg.height=200
+            const imghandle=document.getElementById("image-track")
+            imghandle.appendChild(myimg)
+        </script>
+    </body>
+
+</html>
